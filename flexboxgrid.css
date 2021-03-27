@@ -894,3 +894,7 @@
 .middle {
   align-items: center;
 }
+
+.space-between {
+  justify-content: space-between;
+}
