@@ -1,0 +1,72 @@
+/*
+start, center, end, around, between
+top, middle, bottom
+first, last
+*/
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: red;
+}
+
+div.left-side {
+  background-color: rgb(19, 28, 33);
+  border-right: 1px solid rgb(48, 56, 61);
+  height: 100vh;
+}
+
+div.right-side {
+    /* border: 1px solid lightgrey; */
+}
+
+.mio-profilo {
+  height: 60px;
+  background-color: rgb(42, 47, 50);
+  border-bottom: 1px solid rgb(48, 56, 61);
+}
+
+.left-side .input-txt {
+  height: 49px;
+  background-color: rgb(19, 28, 33);
+  border-bottom: 1px solid rgb(48, 56, 61);
+}
+
+.left-side .input-txt input {
+  width: 95%;
+  border-radius: 100px;
+  height: 65%;
+  background-color: rgb(50, 55, 57);
+}
+
+.left-side ul li {
+  height: 72px;
+  border-bottom: 1px solid rgb(48, 56, 61);
+  background-color: rgb(19, 28, 33);
+}
+
+.left-side ul li:hover {
+  background-color: rgb(50, 55, 57);
+
+}
+
+.right-side .profilo-interlocutore {
+  height: 60px;
+  background-color: rgb(42, 47, 50);
+  border-bottom: 1px solid rgb(48, 56, 61);
+}
+
+.right-side .effetiva-messaggistica {
+  height: calc(100vh - 60px - 70px);
+  background-image: url('./img/mine.jpg');
+}
+
+.right-side .casella-messaggio {
+  background-color: rgb(42, 47, 50);
+  height: 70px;
+  border-top: 1px solid rgb(48, 56, 61);
+}
