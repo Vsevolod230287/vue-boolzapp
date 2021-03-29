@@ -106,7 +106,7 @@ div.right-side {
 /* right-side */
 /* right-side */
 .right-side .profilo-interlocutore {
-  padding: 0 20px;
+  padding: 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -135,13 +135,13 @@ div.right-side {
   position: relative;
   padding-top: 20px;
   overflow-y: auto;
-  height: calc(100vh - 60px - 70px);
+  height: calc(100vh - 60px - 62px);
   background-image: url('./img/mine.jpg');
 }
 
 .right-side .casella-messaggio {
   background-color: rgb(42, 47, 50);
-  height: 70px;
+  height: 62px;
   border-top: 1px solid rgb(48, 56, 61);
 }
 
@@ -183,8 +183,6 @@ div.right-side {
 .effetiva-messaggistica .sent div {
   float: right;
   border-radius: 7px;
-  margin-right: 20px;
-  padding: 10px;
   color: white;
   background-color: rgb(5, 97, 98);
 }
@@ -202,8 +200,6 @@ div.right-side {
 .effetiva-messaggistica .received div {
   border-radius: 7px;
   float: left;
-  margin-left: 20px;
-  padding: 10px;
   color: white;
   background-color: rgb(38, 45, 49);
 }
@@ -216,11 +212,32 @@ i {
   cursor: pointer;
 }
 
-.right-messages {
-display: none;
-margin-top: 10px;
+.message {
+  margin-top: 10px;
 }
 
-.right-messages.active {
+.active {
   display: block;
+}
+
+
+.effetiva-messaggistica .sent .box-msg {
+  position: relative;
+}
+
+.box-msg {
+  margin: 20px;
+    padding: 10px;
+    padding-right: 40px;
+}
+
+.effetiva-messaggistica .received .box-msg {
+  position: relative;
+}
+.effetiva-messaggistica .date {
+  font-size: 12px;
+  position: absolute;
+  bottom: 0px;
+  right: 3px;
+
 }

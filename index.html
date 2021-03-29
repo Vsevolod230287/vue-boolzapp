@@ -32,9 +32,11 @@
               <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
             </div>
           </div>
+
           <div class="col-lg-12 col-md-12 col-sm-12">
             <ul>
-              <li v-for="(contact, i) in contacts" class="flex middle" :class="(i == index) ? 'active' : '' ">
+              <li v-for="contact in contacts" class="flex middle">
+
                 <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">{{contact.name}}
               </li>
             </ul>
@@ -55,13 +57,16 @@
 
         <!-- effetiva-messaggistica  -->
         <div class="effetiva-messaggistica col-lg-12 col-md-12 col-sm-12 ">
+          <div class="right-messages ">
+            <div class="message clearfix col-lg-12" v-for="message in contacts[index].messages" :class="message.status">
+              <div class="box-msg clearfix">
+                <div class="msg">{{message.text}}</div>
+                <div class="date">{{formatDate(message.date)}}</div>
+              </div>
+            </div>
 
-          <div class="right-messages active clearfix col-lg-12" v-for="message in contacts[index].messages" :class="message.status">
-            <div>{{message.text}} <span>{{formatDate(message.date)}}</span></div>
           </div>
-
         </div>
-
 
         <!-- casella-messaggio         -->
         <div class="col-lg-12 col-md-12 col-sm-12 casella-messaggio flex middle center space-between">
