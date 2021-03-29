@@ -91,10 +91,11 @@ var app = new Vue({
   },
   methods: {
     formatDate: function(date) {
-      let dateTime = new Date(date);
-      let hours = dateTime.getHours();
-      let minutes = dateTime.getMinutes();
-      return `${hours}:${minutes}`;
+      let dateTime = date.split(' ');
+       let time = dateTime[1].split(':');
+       let hours = time[0];
+       let minutes = time[1];
+       return `${hours}:${minutes}`;
     },
     visualizza_avatar: function(i) {
       this.index = i;
