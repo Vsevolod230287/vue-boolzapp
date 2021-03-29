@@ -8,8 +8,7 @@ var app = new Vue({
   el: '#root',
   data: {
     index: 0,
-    contacts: [
-      {
+    contacts: [{
         name: 'Michele',
         avatar: '_1',
         visible: true,
@@ -91,14 +90,21 @@ var app = new Vue({
     ]
   },
   methods: {
-    formatDate: function (date) {
+    formatDate: function(date) {
       let dateTime = new Date(date);
       let hours = dateTime.getHours();
       let minutes = dateTime.getMinutes();
       return `${hours}:${minutes}`;
     },
-    visualizza: function (i) {
-      console.log(contacts[i]);
+    visualizza_avatar: function(i) {
+      this.index = i;
+      let avatar = this.contacts[i].avatar;
+      return avatar;
+    },
+    visualizza_name: function(i) {
+      this.index = i;
+      let name = this.contacts[i].name;
+      return name;
     }
   }
 })

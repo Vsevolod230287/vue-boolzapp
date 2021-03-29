@@ -35,8 +35,8 @@
 
           <div class="col-lg-12 col-md-12 col-sm-12">
             <ul>
-              <li v-for="(contact, i) in contacts" class="flex middle"
-              @click="visualizza(i)">
+              <li v-for="(contact, index) in contacts" class="flex middle"
+              @click="visualizza_avatar(index); visualizza_name(index)">
 
                 <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">{{contact.name}}
               </li>
@@ -47,7 +47,7 @@
       <div class="col-lg-8 col-md-8 col-sm-8 right-side">
         <div class="col-lg-12 col-md-12 col-sm-12 profilo-interlocutore flex space-between">
           <div class="img-interlocutore">
-            <img :src="`./img/avatar${contacts[index].avatar}.jpg`" width="40" alt="">{{contacts[index].name}}
+            <img :src="`./img/avatar${visualizza_avatar(index)}.jpg`" width="40" alt="">{{visualizza_name(index)}}
           </div>
           <div class="right-menu-interlocutore flex space-between">
             <div><i class="fas fa-search"></i></div>
