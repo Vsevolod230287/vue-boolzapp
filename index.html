@@ -14,17 +14,17 @@
 <body>
   <div id="root">
     <div class="row">
-      <div class=" left-side col-lg-4 col-md-4 col-sm-4 left-side">
+      <div class="left-side col-lg-4 col-md-4 col-sm-4 left-side">
         <div class="row">
-          <div class="mio-profilo col-lg-12 col-md-12 col-sm-12 flex middle space-between">
+          <div class="mio-profilo col-lg-12 flex middle space-between">
             <div class="mio-avatar">
               <img src="./img/avatar_5.jpg" alt="">
             </div>
-            <div class="icon-nav">
-            <i class="fas fa-circle-notch"></i>
-            <i class="fas fa-comment-alt"></i>
-            <i class="fas fa-ellipsis-v"></i>
-          </div>
+            <div class="icon-nav flex space-between ">
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-alt"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
           </div>
           <div class="input-txt col-lg-12 col-md-12 col-sm-12 flex center middle">
             <div class="wrapper-search-input middle center flex">
@@ -34,24 +34,50 @@
           </div>
           <div class="col-lg-12 col-md-12 col-sm-12">
             <ul>
-              <li v-for="(contact, index) in contacts" class="flex middle">
-                <img :src="'./img/avatar' + contact.avatar + '.jpg'" width="40" alt="">{{contact.name}}
+              <li v-for="(contact, i) in contacts" class="flex middle" :class="(i == index) ? 'active' : '' ">
+                <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">{{contact.name}}
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 right-side">
-        <div class="col-lg-12 col-md-12 col-sm-12 profilo-interlocutore">
-          side right
+        <div class="col-lg-12 col-md-12 col-sm-12 profilo-interlocutore flex space-between">
+          <div class="img-interlocutore">
+            <img :src="`./img/avatar${contacts[index].avatar}.jpg`" width="40" alt="">{{contacts[index].name}}
+          </div>
+          <div class="right-menu-interlocutore flex space-between">
+            <div><i class="fas fa-search"></i></div>
+            <div><i class="fas fa-ellipsis-v"></i></div>
+          </div>
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 effetiva-messaggistica"></div>
-        <div class="col-lg-12 col-md-12 col-sm-12 casella-messaggio">
 
+
+        <!-- effetiva-messaggistica  -->
+        <div class="effetiva-messaggistica col-lg-12 col-md-12 col-sm-12 ">
+
+          <div class="right-messages active clearfix col-lg-12" v-for="message in contacts[index].messages" :class="message.status">
+            <div>{{message.text}} <span>{{formatDate(message.date)}}</span></div>
+          </div>
+
+        </div>
+
+
+        <!-- casella-messaggio         -->
+        <div class="col-lg-12 col-md-12 col-sm-12 casella-messaggio flex middle center space-between">
+          <div class="emoji flex space-between">
+            <i class="fas fa-grin"></i>
+            <i class="fas fa-paperclip"></i>
+          </div>
+          <div class="input-casella-messaggio flex middle center">
+            <input type="text" name="" value="" placeholder="Scrivi un messaggio">
+          </div>
+          <div class="right-microphone">
+            <i class="fas fa-microphone"></i>
+          </div>
         </div>
       </div>
     </div>
-
 
 
 

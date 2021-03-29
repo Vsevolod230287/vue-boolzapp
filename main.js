@@ -91,6 +91,11 @@ var app = new Vue({
     ]
   },
   methods: {
-    
+    formatDate: function (date) {
+      let dateTime = new Date(date);
+      let hours = dateTime.getHours();
+      let minutes = dateTime.getMinutes();
+      return `${hours}:${minutes}`;
+    }
   }
 })
