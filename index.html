@@ -35,7 +35,8 @@
 
           <div class="col-lg-12 col-md-12 col-sm-12">
             <ul>
-              <li v-for="contact in contacts" class="flex middle">
+              <li v-for="(contact, i) in contacts" class="flex middle"
+              @click="visualizza(i)">
 
                 <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">{{contact.name}}
               </li>

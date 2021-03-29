@@ -96,6 +96,9 @@ var app = new Vue({
       let hours = dateTime.getHours();
       let minutes = dateTime.getMinutes();
       return `${hours}:${minutes}`;
+    },
+    visualizza: function (i) {
+      console.log(contacts[i]);
     }
   }
 })
