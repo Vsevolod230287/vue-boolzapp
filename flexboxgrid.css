@@ -179,6 +179,10 @@
   margin-left: 91.667%;
 }
 
+.none-xs {
+  display: none;
+}
+
 .start-xs {
   -ms-flex-pack: start;
   -webkit-box-pack: start;

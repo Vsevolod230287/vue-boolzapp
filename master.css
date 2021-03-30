@@ -11,13 +11,13 @@ first, last
 }
 
 body {
-  background-color: red;
+  background-color: rgb(19, 28, 33);
 }
 
 div.left-side {
   background-color: rgb(19, 28, 33);
   border-right: 1px solid rgb(48, 56, 61);
-  height: 100vh;
+  height: 100%;
 }
 
 div.right-side {
@@ -25,7 +25,7 @@ div.right-side {
 }
 
 .mio-profilo {
-  padding: 0 20px;
+  padding-left: 20px;
   height: 60px;
   background-color: rgb(42, 47, 50);
   border-bottom: 1px solid rgb(48, 56, 61);
@@ -85,6 +85,12 @@ div.right-side {
   position: absolute;
 }
 
+.left-side .ul-overflow {
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
+  width: 100%;
+}
+
 .left-side ul li {
   color: rgb(201, 203, 205);
   height: 72px;
@@ -93,7 +99,7 @@ div.right-side {
 }
 
 .left-side ul li img {
-  margin: 0 10px;
+  margin: 0 20px;
   border-radius: 100px;
   width: 40px;
 }
@@ -123,12 +129,14 @@ div.right-side {
 }
 
 .img-interlocutore {
-  cursor: pimg-interlocutoreointer;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
   color: rgb(201, 203, 205);
 }
 
 .img-interlocutore img {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .right-side .effetiva-messaggistica {
@@ -149,6 +157,7 @@ div.right-side {
   background-color: rgb(50, 55, 57);
   border-radius: 100px;
   width: 75%;
+  margin: 0 30px;
   height: 30px;
 }
 
@@ -220,24 +229,67 @@ i {
   display: block;
 }
 
-
 .effetiva-messaggistica .sent .box-msg {
   position: relative;
 }
 
 .box-msg {
   margin: 20px;
-    padding: 10px;
-    padding-right: 40px;
+  padding: 10px;
+  padding-right: 40px;
 }
 
 .effetiva-messaggistica .received .box-msg {
   position: relative;
 }
+
 .effetiva-messaggistica .date {
   font-size: 12px;
   position: absolute;
   bottom: 0px;
   right: 3px;
+}
 
+/* media query */
+@media all and (min-width: 576px) {
+  .right-side {
+    display-none;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .right-side {
+    display-block;
+  }
+}
+
+
+
+/* scroll-bar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(42, 47, 50);
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(38, 38, 37);
+  border-radius: 10px;
+}
+
+.line-help {
+  height: 100%;
+  width: 10px;
+  border-left: 1px solid rgb(48, 56, 61);
+}
+
+.help-mio-profilo {
+  width: 100%;
+  margin-right: 10px;
 }

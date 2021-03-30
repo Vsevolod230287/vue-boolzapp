@@ -8,6 +8,8 @@ var app = new Vue({
   el: '#root',
   data: {
     index: 0,
+    inputTxt: '',
+    cercaTxt: '',
     contacts: [{
         name: 'Michele',
         avatar: '_1',
@@ -92,10 +94,10 @@ var app = new Vue({
   methods: {
     formatDate: function(date) {
       let dateTime = date.split(' ');
-       let time = dateTime[1].split(':');
-       let hours = time[0];
-       let minutes = time[1];
-       return `${hours}:${minutes}`;
+      let time = dateTime[1].split(':');
+      let hours = time[0];
+      let minutes = time[1];
+      return `${hours}:${minutes}`;
     },
     visualizza_avatar: function(i) {
       this.index = i;
@@ -106,6 +108,40 @@ var app = new Vue({
       this.index = i;
       let name = this.contacts[i].name;
       return name;
+    },
+    inserisciMsg: function() {
+      let currIndex = this.index;
+      let now = dayjs().format('DD/MM/YYYY HH:mm:ss')
+      let obj = {
+        date: now,
+        text: this.inputTxt,
+        status: 'sent'
+      }
+      this.contacts[currIndex].messages.push(obj);
+      this.inputTxt = '';
+
+      setTimeout(() => {
+        let now = dayjs().format('DD/MM/YYYY HH:mm:ss')
+        let obj = {
+          date: now,
+          text: 'Ok!',
+          status: 'received'
+        }
+        this.contacts[currIndex].messages.push(obj);
+        this.inputTxt = '';
+      }, 1000)
+    },
+
+    cerca: function() {
+      this.contacts.forEach((item, i) => {
+        let str = this.cercaTxt;
+
+        if (!(item.name.includes(str))) {
+          item.visible = false
+      }
+    });
+
     }
   }
+
 })
