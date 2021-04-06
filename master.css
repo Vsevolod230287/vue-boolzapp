@@ -279,6 +279,9 @@ i {
 .cancella-messaggio span {
   padding-bottom: 5px;
 }
+.cancella-messaggio span:hover {
+  color: lightgrey;
+}
 
 .message.received .cancella-messaggio {
   z-index: 100;

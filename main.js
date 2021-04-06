@@ -7,6 +7,7 @@
 var app = new Vue({
   el: '#root',
   data: {
+    indexMessaggio: null,
     index: 0,
     inputTxt: '',
     cercaTxt: '',
@@ -142,31 +143,32 @@ var app = new Vue({
         this.inputTxt = '';
         setTimeout(() => {
           clearInterval(idInterval)
-        }, 100)   // un centesimo di secondo
+        }, 100) // un centesimo di secondo
 
 
       }, 1000)
 
     },
-    showOptions: function(indexMess) {
-      this.contacts[this.index].messages = this.contacts[this.index].messages.map((message, i) => {
-        if (indexMess == i) {
-          return {
-            ...message,
-            showOptions: true,
-          }
-        } else {
-          return message
-        }
-      })
-
-
-
-
-
-
-
-    }
+    deleteMessage: function(indexMessaggio) {
+      this.contacts[this.index].messages.splice(indexMessaggio, 1);
+    },
+    // showOptions: function(indexMessaggio) {
+    //   this.contacts[this.index].messages = this.contacts[this.index].messages.map((message, i) => {
+    //     if (indexMessaggio == i) {
+    //       return {
+    //         ...message,
+    //         options: true,
+    //       }
+    //     } else {
+    //       return {
+    //         ...message,
+    //         options: false
+    //       }
+    //     }
+    //
+    //   })
+    //
+    // }
 
 
 
