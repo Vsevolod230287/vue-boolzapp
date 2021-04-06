@@ -74,14 +74,17 @@
         <!-- effetiva-messaggistica  -->
         <div class="effetiva-messaggistica col-lg-12 col-md-12 col-sm-12" id="scroll-auto">
           <div class="right-messages ">
-            <div class="message clearfix col-lg-12" v-for="message in contacts[index].messages"  :class="message.status">
+            <div class="message clearfix col-lg-12"
+             v-for="(message, i) in contacts[index].messages"
+             :class="message.status">
               <div class="box-msg clearfix">
                 <div class="msg">{{message.text}}</div>
                 <div class="date">{{formatDate(message.date)}}</div>
                 <div class="chevron-down">
-                  <i class="fas fa-chevron-down"></i>
+                  <i class="fas fa-chevron-down" @click="showOptions(i)"></i>
                 </div>
-                <div class="cancella-messaggio">
+                <div class="cancella-messaggio"
+                :class="(message.showOptions) ? 'active' : '' ">
                    <span>Message info</span>
                    <span>Delete message</span>
                 </div>

@@ -30,7 +30,7 @@ var app = new Vue({
             text: 'Tutto fatto!',
             status: 'received'
           }
-        ],
+        ]
       },
       {
         name: 'Fabio',
@@ -51,7 +51,7 @@ var app = new Vue({
             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
             status: 'sent'
           }
-        ],
+        ]
       },
       {
         name: 'Samuele',
@@ -72,7 +72,7 @@ var app = new Vue({
             text: 'Ah scusa!',
             status: 'received'
           }
-        ],
+        ]
       },
       {
         name: 'Luisa',
@@ -88,7 +88,7 @@ var app = new Vue({
             text: 'Si, ma preferirei andare al cinema',
             status: 'received'
           }
-        ],
+        ]
       }
     ]
   },
@@ -120,9 +120,13 @@ var app = new Vue({
       }
       this.contacts[currIndex].messages.push(obj);
       this.inputTxt = '';
-      // parte estetica
-      const elem = document.getElementById('scroll-auto');
-      elem.scrollTop = elem.scrollHeight;
+
+      let idInterval = setInterval(function() {
+        console.log('ok');
+        var elem = document.getElementById('scroll-auto');
+        elem.scrollTop = elem.scrollHeight
+
+      }, 0)
 
 
       setTimeout(() => {
@@ -133,17 +137,39 @@ var app = new Vue({
           status: 'received'
         }
         this.contacts[currIndex].messages.push(obj);
+        var elem = document.getElementById('scroll-auto');
+        elem.scrollTop = elem.scrollHeight;
         this.inputTxt = '';
+        setTimeout(() => {
+          clearInterval(idInterval)
+        }, 100)   // un centesimo di secondo
+
+
       }, 1000)
+
     },
+    showOptions: function(indexMess) {
+      this.contacts[this.index].messages = this.contacts[this.index].messages.map((message, i) => {
+        if (indexMess == i) {
+          return {
+            ...message,
+            showOptions: true,
+          }
+        } else {
+          return message
+        }
+      })
+
+
+
+
+
+
+
+    }
 
 
 
   }
 
 })
-
-
-// let lastChatBox = document.querySelectorAll('.box-msg');
-// lastChatBox = lastChatBox[lastChatBox.length-1];
-// lastChatBox.scrollIntoView();
