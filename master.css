@@ -139,6 +139,19 @@ div.right-side {
   margin-right: 20px;
 }
 
+.img-interlocutore .lastAccess {
+  flex-direction: column;
+  display: flex;
+
+  align-items: flex-start;
+}
+.img-interlocutore .lastAccess .time {
+  font-size: 14px;
+}
+.img-interlocutore .lastAccess .time span {
+  font-size: 11px;
+}
+
 .right-side .effetiva-messaggistica {
   position: relative;
   padding-top: 20px;

@@ -152,6 +152,16 @@ var app = new Vue({
     deleteMessage: function(indexMessaggio) {
       this.contacts[this.index].messages.splice(indexMessaggio, 1);
     },
+    getLastAccess: function(index) {
+      const messages = this.contacts[index].messages;
+      if(messages.length){
+        const lastIndex = messages.length - 1;
+
+        return messages[lastIndex].date;
+      } else {
+        return ''; 
+      }
+    }
     // showOptions: function(indexMessaggio) {
     //   this.contacts[this.index].messages = this.contacts[this.index].messages.map((message, i) => {
     //     if (indexMessaggio == i) {
