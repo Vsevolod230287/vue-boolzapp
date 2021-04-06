@@ -10,6 +10,7 @@ var app = new Vue({
     index: 0,
     inputTxt: '',
     cercaTxt: '',
+    filter: '',
     contacts: [{
         name: 'Michele',
         avatar: '_1',
@@ -119,6 +120,10 @@ var app = new Vue({
       }
       this.contacts[currIndex].messages.push(obj);
       this.inputTxt = '';
+      // parte estetica
+      const elem = document.getElementById('scroll-auto');
+      elem.scrollTop = elem.scrollHeight;
+
 
       setTimeout(() => {
         let now = dayjs().format('DD/MM/YYYY HH:mm:ss')
@@ -132,16 +137,13 @@ var app = new Vue({
       }, 1000)
     },
 
-    cerca: function() {
-      this.contacts.forEach((item, i) => {
-        let str = this.cercaTxt;
 
-        if (!(item.name.includes(str))) {
-          item.visible = false
-      }
-    });
 
-    }
   }
 
 })
+
+
+// let lastChatBox = document.querySelectorAll('.box-msg');
+// lastChatBox = lastChatBox[lastChatBox.length-1];
+// lastChatBox.scrollIntoView();

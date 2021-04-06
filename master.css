@@ -250,6 +250,61 @@ i {
   right: 3px;
 }
 
+.box-msg:hover {
+  cursor: pointer;
+}
+
+.chevron-down {
+  padding: 10px;
+  display: none;
+}
+
+.box-msg:hover .chevron-down {
+  display: block;
+}
+
+
+.message.sent .chevron-down {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.message.received .chevron-down {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cancella-messaggio span {
+  padding-bottom: 5px;
+}
+
+.message.received .cancella-messaggio {
+  visibility: hidden;
+  position: absolute;
+  top: 27px;
+  right: -98px;
+  width: 125px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: flex-start;
+}
+
+.message.sent .cancella-messaggio {
+  visibility: hidden;
+  display: none;
+  position: absolute;
+  top: 27px;
+  right: 6px;
+  width: 125px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: flex-start;
+}
+
 /* media query */
 @media all and (min-width: 576px) {
   .right-side {
@@ -263,8 +318,6 @@ i {
   }
 }
 
-
-
 /* scroll-bar */
 /* width */
 ::-webkit-scrollbar {
@@ -274,7 +327,6 @@ i {
 /* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px rgb(42, 47, 50);
-
 }
 
 /* Handle */

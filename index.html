@@ -35,18 +35,18 @@
               <div class="wrapper-search-input middle center flex">
                 <span><i class="fas fa-search"></i></span>
                 <input type="text" name="" value=""
-                 v-model="cercaTxt" @keyup.enter="cerca"
-                 placeholder="Cerca chat">
+                v-model="cercaTxt" @keyup.enter="cerca"
+                placeholder="Cerca chat">
               </div>
             </div>
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
               <ul>
-                <li v-for="(contact, i) in contacts"
-                 v-if="(contact.visible)"
-                  class="flex middle"
-                  @click="visualizza_avatar(i); visualizza_name(i)">
+                <li class="flex middle"
+                v-for="(contact, i) in contacts"
+                v-if="contact.name.toLowerCase().includes(cercaTxt.toLowerCase())"
+                @click="visualizza_avatar(i); visualizza_name(i)">
                   <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">{{contact.name}}
                 </li>
               </ul>
@@ -59,9 +59,11 @@
       <!-- right-side -->
       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 right-side">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 profilo-interlocutore flex space-between">
+
           <div class="img-interlocutore">
             <img :src="`./img/avatar${visualizza_avatar(index)}.jpg`" width="40" alt="">{{visualizza_name(index)}}
           </div>
+
           <div class="right-menu-interlocutore flex space-between">
             <div><i class="fas fa-search"></i></div>
             <div><i class="fas fa-ellipsis-v"></i></div>
@@ -70,12 +72,19 @@
 
 
         <!-- effetiva-messaggistica  -->
-        <div class="effetiva-messaggistica col-lg-12 col-md-12 col-sm-12 ">
+        <div class="effetiva-messaggistica col-lg-12 col-md-12 col-sm-12" id="scroll-auto">
           <div class="right-messages ">
-            <div class="message clearfix col-lg-12" v-for="message in contacts[index].messages" :class="message.status">
+            <div class="message clearfix col-lg-12" v-for="message in contacts[index].messages"  :class="message.status">
               <div class="box-msg clearfix">
                 <div class="msg">{{message.text}}</div>
                 <div class="date">{{formatDate(message.date)}}</div>
+                <div class="chevron-down">
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="cancella-messaggio">
+                   <span>Message info</span>
+                   <span>Delete message</span>
+                </div>
               </div>
             </div>
 
@@ -89,9 +98,9 @@
             <i class="fas fa-paperclip"></i>
           </div>
           <div class="input-casella-messaggio flex middle center">
-            <input type="text" name="" value="" v-model="inputTxt"
-             @keyup.enter="inserisciMsg"
-            placeholder="Scrivi un messaggio">
+            <input type="text" name="" value=""
+            v-model="inputTxt" @keyup.enter="inserisciMsg"
+             placeholder="Scrivi un messaggio">
           </div>
           <div class="right-microphone">
             <i class="fas fa-microphone"></i>
@@ -104,6 +113,7 @@
 
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="./main.js" charset="utf-8"></script>
 </body>
