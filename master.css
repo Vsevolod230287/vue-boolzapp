@@ -20,7 +20,7 @@ div.left-side {
   height: 100%;
 }
 
-div.left-side.display {
+div.left-side.display-none {
   display: none;
 }
 
@@ -28,7 +28,7 @@ div.right-side {
   display: none;
 }
 
-div.right-side.display {
+div.right-side.display-block {
   display: block;
 }
 
@@ -359,6 +359,9 @@ i {
   visibility: visible;
 }
 
+
+/* media query */
+/* media query */
 /* media query */
 @media all and (min-width: 576px) {
 
@@ -373,10 +376,10 @@ i {
   div.right-side {
     display: block;
   }
-
-  div.left-side.display {
+  div.left-side.display-none {
     display: block;
   }
+
 }
 
 @media all and (min-width: 768px) {}

@@ -164,14 +164,15 @@ var app = new Vue({
     },
     addClassDisplay: function(indexMessaggio) {
       let leftSide = document.getElementById('left-side');
-      leftSide.classList.add("display");
+      leftSide.classList.add("display-none");
       let rightSide = document.getElementById('right-side');
-      rightSide.classList.add("display");
+      rightSide.classList.add("display-block");
     },
     goBackDisplay: function() {
       let leftSide = document.getElementById('left-side');
-      leftSide.classList.remove("display");
+      leftSide.classList.remove("display-none");
       let rightSide = document.getElementById('right-side');
+      rightSide.classList.remove("display-block");
     }
 
 
