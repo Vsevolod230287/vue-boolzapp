@@ -14,7 +14,7 @@
 <body>
   <div id="root" @click="indexMessaggio = null">
     <div class="row">
-      <div class="left-side col-lg-4 col-md-4 col-sm-4 col-xs-12 left-side">
+      <div id="left-side" class="left-side col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
         <div class="row">
           <div class="mio-profilo col-lg-12 col-md-12 col-sm-12 col-xs-12 flex middle space-between">
             <div class="help-mio-profilo flex middle space-between">
@@ -41,21 +41,26 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
               <ul>
-                <li class="flex middle" v-for="(contact, i) in contacts" v-if="contact.name.toLowerCase().includes(cercaTxt.toLowerCase())" @click="visualizza_avatar(i); visualizza_name(i)">
+                <li class="flex middle" v-for="(contact, i) in contacts"
+                v-if="contact.name.toLowerCase().includes(cercaTxt.toLowerCase())"
+                @click="visualizza_avatar(i); visualizza_name(i); addClassDisplay(i)">
                   <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">{{contact.name}}
                 </li>
               </ul>
-            </div>{
+            </div>
           </div>
         </div>
       </div>
 
 
       <!-- right-side -->
-      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 right-side">
+      <div id="right-side" class="col-lg-8 col-md-8 col-sm-8 col-xs-12 right-side">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 profilo-interlocutore flex space-between">
 
           <div class="img-interlocutore">
+            <div class="go-back" @click="goBackDisplay">
+              <i class="fas fa-arrow-left"></i>
+            </div>
             <img :src="`./img/avatar${visualizza_avatar(index)}.jpg`" width="40" alt="">
             <div class="lastAccess">
               <div class="">
@@ -100,7 +105,7 @@
           </div>
         </div>
 
-        <!-- casella-messaggio         -->
+        <!-- casella-messaggio -->
         <div class="col-lg-12 col-md-12 col-sm-12 casella-messaggio flex middle center space-between">
           <div class="emoji flex space-between">
             <i class="fas fa-grin"></i>

@@ -154,14 +154,27 @@ var app = new Vue({
     },
     getLastAccess: function(index) {
       const messages = this.contacts[index].messages;
-      if(messages.length){
+      if (messages.length) {
         const lastIndex = messages.length - 1;
 
         return messages[lastIndex].date;
       } else {
-        return ''; 
+        return '';
       }
+    },
+    addClassDisplay: function(indexMessaggio) {
+      let leftSide = document.getElementById('left-side');
+      leftSide.classList.add("display");
+      let rightSide = document.getElementById('right-side');
+      rightSide.classList.add("display");
+    },
+    goBackDisplay: function() {
+      let leftSide = document.getElementById('left-side');
+      leftSide.classList.remove("display");
+      let rightSide = document.getElementById('right-side');
     }
+
+
     // showOptions: function(indexMessaggio) {
     //   this.contacts[this.index].messages = this.contacts[this.index].messages.map((message, i) => {
     //     if (indexMessaggio == i) {

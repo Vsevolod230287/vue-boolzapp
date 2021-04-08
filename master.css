@@ -20,9 +20,19 @@ div.left-side {
   height: 100%;
 }
 
-div.right-side {
-  /* border: 1px solid lightgrey; */
+div.left-side.display {
+  display: none;
 }
+
+div.right-side {
+  display: none;
+}
+
+div.right-side.display {
+  display: block;
+}
+
+
 
 .mio-profilo {
   padding-left: 20px;
@@ -111,8 +121,23 @@ div.right-side {
 /* right-side */
 /* right-side */
 /* right-side */
+.right-side .go-back {
+  left: 10px;
+  position: absolute;
+  padding: 5px 10px;
+  font-size: 30px;
+  color: white;
+  margin-right: 10px;
+  border-radius: 100px;
+  background-color: rgba(0,0,0,0.3);
+}
+.right-side .go-back:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: lightgrey;
+}
+
 .right-side .profilo-interlocutore {
-  padding: 0 30px;
+  padding: 0 70px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -142,12 +167,13 @@ div.right-side {
 .img-interlocutore .lastAccess {
   flex-direction: column;
   display: flex;
-
   align-items: flex-start;
 }
+
 .img-interlocutore .lastAccess .time {
   font-size: 14px;
 }
+
 .img-interlocutore .lastAccess .time span {
   font-size: 11px;
 }
@@ -276,7 +302,6 @@ i {
   display: block;
 }
 
-
 .message.sent .chevron-down {
   position: absolute;
   right: 0;
@@ -292,6 +317,7 @@ i {
 .cancella-messaggio span {
   padding-bottom: 5px;
 }
+
 .cancella-messaggio span:hover {
   color: lightgrey;
 }
@@ -335,16 +361,25 @@ i {
 
 /* media query */
 @media all and (min-width: 576px) {
-  .right-side {
-    display-none;
+
+  .right-side .profilo-interlocutore {
+    padding-left: 30px;
+  }
+
+  .go-back {
+    display: none;
+  }
+
+  div.right-side {
+    display: block;
+  }
+
+  div.left-side.display {
+    display: block;
   }
 }
 
-@media all and (min-width: 768px) {
-  .right-side {
-    display-block;
-  }
-}
+@media all and (min-width: 768px) {}
 
 /* scroll-bar */
 /* width */
