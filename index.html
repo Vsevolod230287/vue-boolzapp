@@ -44,7 +44,12 @@
                 <li class="flex middle" v-for="(contact, i) in contacts"
                 v-if="contact.name.toLowerCase().includes(cercaTxt.toLowerCase())"
                 @click="visualizza_avatar(i); visualizza_name(i); addClassDisplay(i)">
-                  <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">{{contact.name}}
+                  <img :src="`./img/avatar${contact.avatar}.jpg`" width="40" alt="">
+                  <div class="lastAccess">
+                    {{contact.name}}
+                    <div class="time">Ultimo acesso <span>{{ getLastAccess(i) }}</span></div>
+
+                  </div>
                 </li>
               </ul>
             </div>

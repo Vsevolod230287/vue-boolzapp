@@ -32,8 +32,6 @@ div.right-side.display-block {
   display: block;
 }
 
-
-
 .mio-profilo {
   padding-left: 20px;
   height: 60px;
@@ -64,6 +62,14 @@ div.right-side.display-block {
   height: 49px;
   background-color: rgb(19, 28, 33);
   border-bottom: 1px solid rgb(48, 56, 61);
+}
+
+.left-side .lastAccess .time {
+  font-size: 14px;
+}
+
+.left-side .lastAccess .time span {
+  font-size: 11px;
 }
 
 .wrapper-search-input {
@@ -129,10 +135,11 @@ div.right-side.display-block {
   color: white;
   margin-right: 10px;
   border-radius: 100px;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
 }
+
 .right-side .go-back:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   color: lightgrey;
 }
 
@@ -359,12 +366,10 @@ i {
   visibility: visible;
 }
 
-
 /* media query */
 /* media query */
 /* media query */
 @media all and (min-width: 576px) {
-
   .right-side .profilo-interlocutore {
     padding-left: 30px;
   }
@@ -376,10 +381,10 @@ i {
   div.right-side {
     display: block;
   }
+
   div.left-side.display-none {
     display: block;
   }
-
 }
 
 @media all and (min-width: 768px) {}
